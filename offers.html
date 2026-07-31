@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Today's Offers | NADAF CLEAN MART</title>
+<link rel="icon" type="image/jpeg" href="images/logo.jpeg">
+<link rel="manifest" href="manifest.json">
+<link rel="stylesheet" href="style.css">
+
+<link rel="stylesheet"
+href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
+</head>
+
+<body>
+
+<header class="header">
+
+<div class="logo">
+
+<a href="index.html">
+
+<div class="logo-icon">
+<i class="fa-solid fa-store"></i>
+</div>
+
+<div class="logo-text">
+<h2>NADAF CLEAN MART</h2>
+<span>Wholesale & Retail</span>
+</div>
+
+</a>
+
+</div>
+
+</header>
+
+<section class="offers-banner">
+
+<h1>🔥 Today's Best Offers 🔥</h1>
+
+<p>Special discounts on selected products.</p>
+
+</section>
+
+<section class="featured-products">
+
+<div class="products-grid" id="offerProducts">
+
+</div>
+
+</section>
+
+<script src="products.js"></script>
+
+<script>
+
+const container=document.getElementById("offerProducts");
+
+const offerProducts=products.filter((p,index)=>index<8);
+
+offerProducts.forEach(product=>{
+
+const discount=Math.floor(Math.random()*25)+10;
+
+const oldPrice=Math.round(product.price/(1-discount/100));
+
+container.innerHTML+=`
+
+<div class="product-card">
+
+<div style="position:relative;">
+
+<div style="position:absolute;
+top:10px;
+left:10px;
+background:red;
+color:white;
+padding:6px 12px;
+border-radius:20px;
+font-size:12px;
+font-weight:bold;">
+
+${discount}% OFF
+
+</div>
+
+<div class="product-image">
+
+<img src="${product.image}" alt="${product.name}">
+
+</div>
+
+</div>
+
+<div class="product-content">
+
+<span class="product-category">
+
+${product.category}
+
+</span>
+
+<h3 class="product-name">
+
+${product.name}
+
+</h3>
+
+<div>
+
+<span style="text-decoration:line-through;color:#888;">
+
+₹${oldPrice}
+
+</span>
+
+&nbsp;
+
+<span class="product-price">
+
+₹${product.price}
+
+</span>
+
+</div>
+
+<div class="product-buttons">
+
+<button
+class="quick-view-btn"
+onclick="location.href='product.html?id=${product.id}'">
+
+View Product
+
+</button>
+
+<button
+class="add-cart-btn"
+onclick="location.href='product.html?id=${product.id}'">
+
+Buy Now
+
+</button>
+
+</div>
+
+</div>
+
+</div>
+
+`;
+
+});
+
+</script>
+
+</body>
+
+</html>
+
+

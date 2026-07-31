@@ -1,0 +1,22 @@
+{
+  "name": "NADAF CLEAN MART",
+  "short_name": "NCM",
+  "description": "Wholesale & Retail Cleaning Products in Pune",
+  "start_url": "index.html",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#2E7D32",
+  "icons": [
+    {
+      "src": "images/logo.jpeg",
+      "sizes": "192x192",
+      "type": "image/jpeg"
+    },
+    {
+      "src": "images/logo.jpeg",
+      "sizes": "512x512",
+      "type": "image/jpeg"
+    }
+  ]
+}
+

@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Category | NADAF CLEAN MART</title>
+<link rel="icon" type="image/jpeg" href="images/logo.jpeg">
+<link rel="manifest" href="manifest.json">
+
+<link rel="stylesheet" href="style.css">
+
+<link rel="stylesheet"
+href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
+</head>
+
+<body>
+
+<header class="header">
+
+    <div class="logo">
+
+        <a href="index.html">
+
+            <div class="logo-icon">
+                <i class="fa-solid fa-store"></i>
+            </div>
+
+            <div class="logo-text">
+                <h2>NADAF CLEAN MART</h2>
+                <span>Wholesale & Retail</span>
+            </div>
+
+        </a>
+
+    </div>
+
+    <div class="header-icons">
+
+        <button id="cartBtn" onclick="openCart()">
+            <i class="fa-solid fa-cart-shopping"></i>
+            <span id="cartCount">0</span>
+        </button>
+
+    </div>
+  
+
+</header>
+
+
+
+<section class="home-categories">
+
+<div class="section-title">
+
+<h2 id="pageTitle">Products</h2>
+
+<p>Select Category</p>
+
+</div>
+
+<div class="category-grid">
+
+<button class="category-card" onclick="showCategory('All')">
+All Products
+</button>
+
+<button class="category-card" onclick="showCategory('Cleaning Chemicals')">
+Cleaning Chemicals
+</button>
+
+<button class="category-card" onclick="showCategory('Cleaning Tools')">
+Cleaning Tools
+</button>
+
+<button class="category-card" onclick="showCategory('Kitchen Essentials')">
+Kitchen Essentials
+</button>
+
+<button class="category-card" onclick="showCategory('Bathroom Essentials')">
+Bathroom Essentials
+</button>
+
+<button class="category-card" onclick="showCategory('Hall/Bedroom Essentials')">
+Hall/Bedroom Essentials
+</button>
+
+</div>
+
+</section>
+  <div class="search-box">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <input
+        type="text"
+        id="categorySearchInput"
+        placeholder="Search Products"
+        oninput="searchCategoryProducts()">
+</div>
+
+
+<section class="featured-products">
+
+<div id="products" class="products-grid"></div>
+
+</section>
+<div id="cartOverlay" class="cart-overlay" style="display:none;">
+
+    <div class="cart-sidebar">
+
+        <div class="cart-header">
+
+            <h2>My Cart</h2>
+
+            <button onclick="closeCart()">✖</button>
+
+        </div>
+
+        <div id="cartItems" class="cart-items"></div>
+
+        <div class="cart-footer">
+
+            <h3>Total :
+                <span id="cartTotal">₹0</span>
+            </h3>
+
+          <button class="checkout-btn" onclick="openCheckout()">
+    Checkout
+</button>
+
+        </div>
+
+    </div>
+
+</div>
+<!-- ================= CHECKOUT POPUP ================= -->
+
+<div class="checkout-overlay" id="checkoutOverlay">
+
+    <div class="checkout-box">
+
+        <button id="closeCheckout" class="close-checkout">
+            <i class="fa-solid fa-xmark"></i>
+        </button>
+
+        <h2>Checkout</h2>
+
+        <p>Please enter delivery details.</p>
+
+        <div class="input-group">
+            <label>Full Name</label>
+            <input type="text" id="customerName" placeholder="Enter Full Name">
+        </div>
+
+        <div class="input-group">
+            <label>Mobile Number</label>
+            <input type="tel" id="customerPhone" placeholder="Enter Mobile Number">
+        </div>
+
+        <div class="input-group">
+            <label>Delivery Address</label>
+            <textarea id="customerAddress" rows="4" placeholder="Enter Complete Address"></textarea>
+        </div>
+
+        <button id="placeOrderBtn"
+                class="place-order-btn"
+                onclick="placeOrder()">
+
+            <i class="fa-brands fa-whatsapp"></i>
+            Place Order
+
+        </button>
+
+    </div>
+
+</div>
+
+<script src="products.js"></script>
+<script src="script.js"></script>
+
+<script>
+
+const params=new URLSearchParams(window.location.search);
+
+let currentCategory=params.get("category") || "All";
+
+document.getElementById("pageTitle").innerHTML=currentCategory;
+
+function showCategory(category){
+
+currentCategory=category;
+
+document.getElementById("pageTitle").innerHTML=category;
+
+let list=products;
+
+if(category!=="All"){
+
+list=products.filter(p=>p.category===category);
+
+}
+
+display(list);
+
+}
+function searchCategoryProducts() {
+
+    const keyword = document
+        .getElementById("categorySearchInput")
+        .value
+        .toLowerCase();
+
+    let list = products;
+
+    // Pehle selected category filter
+    if (currentCategory !== "All") {
+        list = products.filter(product =>
+            product.category === currentCategory
+        );
+    }
+
+    // Fir search filter
+    list = list.filter(product =>
+        product.name.toLowerCase().includes(keyword) ||
+        product.category.toLowerCase().includes(keyword)
+    );
+
+    display(list);
+
+}
+
+function display(list){
+
+const container=document.getElementById("products");
+
+container.innerHTML="";
+
+list.forEach(product=>{
+
+container.innerHTML+=`
+
+<div class="product-card">
+
+<div class="product-image">
+
+<img src="${product.image}">
+
+</div>
+
+<div class="product-content">
+
+<span class="product-category">
+
+${product.category}
+
+</span>
+
+<h3 class="product-name">
+
+${product.name}
+
+</h3>
+
+<div class="product-price">
+
+₹${product.price}
+
+</div>
+
+<div class="product-buttons">
+
+<button
+class="quick-view-btn"
+onclick="location.href='product.html?id=${product.id}&category=${encodeURIComponent(currentCategory)}'">
+
+View Product
+
+</button>
+
+</div>
+
+</div>
+
+</div>
+
+`;
+
+});
+
+}
+
+showCategory(currentCategory);
+
+
+</script>
+
+</body>
+
+</html>
+
+

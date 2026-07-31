@@ -1,0 +1,1088 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+        content="width=device-width, initial-scale=1.0">
+
+    <title>NADAF CLEAN MART | Wholesale & Retail Cleaning Products</title>
+    <link rel="icon" type="image/jpeg" href="images/logo.jpeg"> 
+<link rel="manifest" href="manifest.json">
+    <meta name="description"
+        content="Wholesale & Retail Cleaning Products in Pune">
+
+    <meta name="keywords"
+        content="Cleaning Products, Pune, Nadaf Clean Mart, Home Care">
+
+    <!-- Google Font -->
+
+    <link rel="preconnect"
+        href="https://fonts.googleapis.com">
+
+    <link rel="preconnect"
+        href="https://fonts.gstatic.com"
+        crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+
+    <!-- Font Awesome -->
+
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+
+    <!-- CSS -->
+
+    <link rel="stylesheet"
+        href="style.css">
+
+</head>
+
+<body>
+
+<!-- ================= PRELOADER ================= -->
+
+<div id="preloader">
+
+    <div class="loader"></div>
+
+</div>
+
+<!-- ================= HEADER ================= -->
+
+<header class="header">
+
+    <!-- Logo -->
+
+    <div class="logo">
+
+        <a href="index.html">
+
+            <div class="logo-icon">
+
+                <i class="fa-solid fa-store"></i>
+
+            </div>
+
+            <div class="logo-text">
+
+                <h2>NADAF CLEAN MART</h2>
+
+                <span>Wholesale & Retail Cleaning Products</span>
+
+            </div>
+
+        </a>
+
+    </div>
+  
+
+
+
+    <!-- Header Icons -->
+
+    <div class="header-icons">
+
+        <button id="menuBtn" onclick="openMenu()">
+
+            <i class="fa-solid fa-bars"></i>
+
+        </button>
+
+        <a href="offers.html">
+
+            <button>
+
+                <i class="fa-solid fa-gift"></i>
+
+            </button>
+
+        </a>
+
+        <a href="profile.html">
+
+            <button>
+
+                <i class="fa-solid fa-user"></i>
+
+            </button>
+
+        </a>
+
+        <button id="wishlistBtn">
+
+            <i class="fa-solid fa-heart"></i>
+
+        </button>
+
+        <button id="cartBtn" onclick="openCart()">
+            <i class="fa-solid fa-cart-shopping"></i>
+
+            <span id="cartCount">0</span>
+
+        </button>
+
+    </div>
+
+</header>
+
+<!-- ================= SIDE MENU ================= -->
+
+<div class="menu-overlay"
+     id="menuOverlay">
+
+    <nav class="side-menu">
+
+        <button
+            id="closeMenu"
+            class="close-menu">
+
+            <i class="fa-solid fa-xmark"></i>
+
+        </button>
+
+        <h2>NADAF CLEAN MART</h2>
+
+        <a href="index.html">
+
+            <i class="fa-solid fa-house"></i>
+
+            Home
+
+        </a>
+
+        <a href="offers.html">
+
+            <i class="fa-solid fa-gift"></i>
+
+            Offers
+
+        </a>
+
+        <a href="profile.html">
+
+            <i class="fa-solid fa-user"></i>
+
+            My Profile
+
+        </a>
+
+        <a href="delivery.html">
+
+            <i class="fa-solid fa-location-dot"></i>
+
+            Delivery Areas
+
+        </a>
+
+        <a href="#">
+
+            <i class="fa-solid fa-heart"></i>
+
+            Wishlist
+
+        </a>
+
+        <a href="#footer">
+
+            <i class="fa-solid fa-phone"></i>
+
+            Contact Us
+
+        </a>
+
+    </nav>
+
+</div>
+
+<!-- ================= HERO ================= -->
+
+<section class="hero">
+
+    <div class="slide active">
+
+        <img
+            src="images/banner1.png"
+            alt="Banner">
+
+    </div>
+
+    <div class="slide">
+
+        <img
+            src="images/banner2.png"
+            alt="Banner">
+
+    </div>
+
+    <div class="slide">
+
+        <img
+            src="images/banner3.png"
+            alt="Banner">
+
+    </div>
+
+</section>
+
+<!-- ================= SHOP BY CATEGORY ================= -->
+
+<section class="home-categories">
+
+    <div class="section-title">
+
+        <h2>Shop By Category</h2>
+
+        <p>Select a category to explore products</p>
+
+    </div>
+
+    <div class="category-grid">
+
+        <a href="category.html?category=Cleaning Chemicals"
+           class="category-card">
+
+            <i class="fa-solid fa-pump-soap"></i>
+
+            <h3>Cleaning Chemicals</h3>
+
+        </a>
+
+        <a href="category.html?category=Cleaning Tools"
+           class="category-card">
+
+            <i class="fa-solid fa-broom"></i>
+
+            <h3>Cleaning Tools</h3>
+
+        </a>
+
+        <a href="category.html?category=Kitchen Essentials"
+           class="category-card">
+
+            <i class="fa-solid fa-box"></i>
+
+            <h3>Kitchen Essentials</h3>
+
+        </a>
+
+        <a href="category.html?category=Bathroom Essentials"
+           class="category-card">
+
+            <i class="fa-solid fa-bucket"></i>
+
+            <h3>Bathroom Essentials</h3>
+
+        </a>
+
+        <a href="category.html?category=Hall/Bedroom Essentials"
+           class="category-card">
+
+            <i class="fa-solid fa-house"></i>
+
+            <h3>Hall/Bedroom Essentials</h3>
+
+        </a>
+
+        <a href="category.html?category=Disposal Items"
+           class="category-card">
+
+            <i class="fa-solid fa-trash"></i>
+
+            <h3>Disposal Items</h3>
+
+        </a>
+
+    </div>
+
+</section>
+        <!-- Search -->
+
+<div class="search-box">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <input
+        type="text"
+        id="searchInput"
+        placeholder="Search Products"
+        oninput="searchProducts()">
+</div>
+
+<!-- ================= FEATURED PRODUCTS ================= -->
+
+<section class="featured-products">
+
+    <div class="section-title">
+
+        <h2>Featured Products</h2>
+
+        <p>Best Selling Products</p>
+
+    </div>
+
+    <div
+        id="featuredProducts"
+        class="products-grid">
+
+        <!-- Products will load from products.js -->
+
+    </div>
+
+    <div class="view-all">
+
+        <a href="category.html?category=All">
+
+            View All Products
+
+            <i class="fa-solid fa-arrow-right"></i>
+
+        </a>
+
+    </div>
+
+</section>
+
+
+
+<!-- ================= PRODUCT QUICK VIEW POPUP ================= -->
+
+<div class="popup-overlay" id="popupOverlay">
+
+    <div class="product-popup">
+
+        <button class="close-popup" id="closePopup">
+
+            <i class="fa-solid fa-xmark"></i>
+
+        </button>
+
+        <div class="popup-image">
+
+            <img id="popupImage"
+                 src=""
+                 alt="Product">
+
+        </div>
+
+        <div class="popup-details">
+
+            <span id="popupCategory"
+                  class="popup-category">
+
+            </span>
+
+            <h2 id="popupName">
+
+                Product Name
+
+            </h2>
+
+            <p id="popupDescription">
+
+                Product Description
+
+            </p>
+
+            <h3 id="popupPrice">
+
+                ₹0
+
+            </h3>
+            <div class="variant-section">
+
+   
+
+
+</div>
+
+
+            <div class="quantity-box">
+
+                <button id="minusBtn">
+
+                    −
+
+                </button>
+
+                <span id="quantityText">
+
+                    1
+
+                </span>
+
+                <button id="plusBtn">
+
+                    +
+
+                </button>
+
+            </div>
+
+            <div class="popup-buttons">
+
+               <button
+    id="addCartBtn"
+    class="add-cart-btn"
+    onclick="addPopupToCart()">
+
+                    <i class="fa-solid fa-cart-shopping"></i>
+
+                    Add To Cart
+
+                </button>
+
+                <button
+                    id="viewProductBtn"
+                    class="view-product-btn">
+
+                    <i class="fa-solid fa-eye"></i>
+
+                    View Full Details
+
+                </button>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+<!-- ================= WISHLIST SIDEBAR ================= -->
+
+<div class="wishlist-overlay"
+     id="wishlistOverlay">
+
+    <div class="wishlist-sidebar">
+
+        <div class="wishlist-header">
+
+            <h2>
+
+                <i class="fa-solid fa-heart"></i>
+
+                Wishlist
+
+            </h2>
+
+            <button id="closeWishlist">
+
+                <i class="fa-solid fa-xmark"></i>
+
+            </button>
+
+        </div>
+
+        <div id="wishlistItems"
+             class="wishlist-items">
+
+            <div class="empty-box">
+
+                <i class="fa-regular fa-heart"></i>
+
+                <p>
+
+                    No products in wishlist.
+
+                </p>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+<!-- ================= CART SIDEBAR ================= -->
+
+<div class="cart-overlay"
+     id="cartOverlay">
+
+    <div class="cart-sidebar">
+
+        <div class="cart-header">
+
+            <h2>
+
+                <i class="fa-solid fa-cart-shopping"></i>
+
+                Shopping Cart
+
+            </h2>
+
+            <button id="closeCart">
+
+                <i class="fa-solid fa-xmark"></i>
+
+            </button>
+
+        </div>
+
+        <div id="cartItems"
+             class="cart-items">
+
+        </div>
+
+        <div class="cart-footer">
+
+            <div class="cart-total">
+
+                <span>Total Amount</span>
+
+                <h3 id="cartTotal">
+
+                    ₹0
+
+                </h3>
+
+            </div>
+
+         <button
+    id="checkoutBtn"
+    class="checkout-btn"
+    onclick="openCheckout()">
+
+    Proceed To Checkout
+
+</button>
+        </div>
+
+    </div>
+
+</div>
+
+<!-- ================= CHECKOUT POPUP ================= -->
+
+<div class="checkout-overlay"
+     id="checkoutOverlay">
+
+    <div class="checkout-box">
+
+        <button
+            id="closeCheckout"
+            class="close-checkout">
+
+            <i class="fa-solid fa-xmark"></i>
+
+        </button>
+
+        <h2>
+
+            Checkout
+
+        </h2>
+
+        <p>
+
+            Please enter delivery details.
+
+        </p>
+
+        <div class="input-group">
+
+            <label>
+
+                Full Name
+
+            </label>
+
+            <input
+                type="text"
+                id="customerName"
+                placeholder="Enter Full Name">
+
+        </div>
+
+        <div class="input-group">
+
+            <label>
+
+                Mobile Number
+
+            </label>
+
+            <input
+                type="tel"
+                id="customerPhone"
+                placeholder="Enter Mobile Number">
+
+        </div>
+
+        <div class="input-group">
+
+            <label>
+
+                Delivery Address
+
+            </label>
+
+            <textarea
+                id="customerAddress"
+                rows="4"
+                placeholder="Enter Complete Address"></textarea>
+
+        </div>
+
+        <button
+    id="placeOrderBtn"
+    class="place-order-btn"
+    onclick="placeOrder()">
+
+    <i class="fa-brands fa-whatsapp"></i>
+
+    Place Order
+
+</button>
+    </div>
+
+</div>
+
+<!-- ================= PROFILE POPUP ================= -->
+
+<div class="profile-overlay"
+     id="profileOverlay">
+
+    <div class="profile-box">
+
+        <button
+            id="closeProfile"
+            class="close-profile">
+
+            <i class="fa-solid fa-xmark"></i>
+
+        </button>
+
+        <h2>
+
+            <i class="fa-solid fa-user"></i>
+
+            My Profile
+
+        </h2>
+
+        <div class="profile-info">
+
+            <div class="profile-row">
+
+                <label>Name</label>
+
+                <span id="profileName">
+
+                    Not Available
+
+                </span>
+
+            </div>
+
+            <div class="profile-row">
+
+                <label>Mobile</label>
+
+                <span id="profilePhone">
+
+                    Not Available
+
+                </span>
+
+            </div>
+
+            <div class="profile-row">
+
+                <label>Address</label>
+
+                <span id="profileAddress">
+
+                    Not Available
+
+                </span>
+
+            </div>
+
+        </div>
+
+        <button
+            id="editProfileBtn"
+            class="edit-profile-btn">
+
+            <i class="fa-solid fa-pen"></i>
+
+            Edit Details
+
+        </button>
+
+    </div>
+
+</div>
+
+
+<!-- ================= WHY CHOOSE US ================= -->
+
+<section class="why-choose">
+
+    <div class="section-title">
+
+        <h2>Why Choose NADAF CLEAN MART?</h2>
+
+        <p>Quality Products • Affordable Prices • Fast Delivery</p>
+
+    </div>
+
+    <div class="why-grid">
+
+        <div class="why-card">
+
+            <i class="fa-solid fa-truck-fast"></i>
+
+            <h3>Fast Delivery</h3>
+
+            <p>
+                Quick doorstep delivery across selected areas in Pune.
+            </p>
+
+        </div>
+
+        <div class="why-card">
+
+            <i class="fa-solid fa-tags"></i>
+
+            <h3>Best Prices</h3>
+
+            <p>
+                Wholesale & Retail prices with great savings.
+            </p>
+
+        </div>
+
+        <div class="why-card">
+
+            <i class="fa-solid fa-shield-halved"></i>
+
+            <h3>Trusted Quality</h3>
+
+            <p>
+                Genuine brands and premium quality products.
+            </p>
+
+        </div>
+
+        <div class="why-card">
+
+            <i class="fa-solid fa-headset"></i>
+
+            <h3>Customer Support</h3>
+
+            <p>
+                Friendly customer support for every order.
+            </p>
+
+        </div>
+
+    </div>
+
+</section>
+
+<!-- ================= CUSTOMER REVIEWS ================= -->
+
+<section class="customer-reviews">
+
+    <div class="section-title">
+
+        <h2>Customer Reviews</h2>
+
+        <p>Trusted by happy customers</p>
+
+    </div>
+
+    <div class="reviews-container">
+
+        <div class="review-card">
+
+            <div class="stars">
+
+                ★★★★★
+
+            </div>
+
+            <p>
+
+                Excellent service and genuine products.
+                Highly recommended.
+
+            </p>
+
+            <h4>
+
+                - Ayesha Khan
+
+            </h4>
+
+        </div>
+
+        <div class="review-card">
+
+            <div class="stars">
+
+                ★★★★★
+
+            </div>
+
+            <p>
+
+                Very fast delivery and affordable prices.
+
+            </p>
+
+            <h4>
+
+                - Imran Shaikh
+
+            </h4>
+
+        </div>
+
+        <div class="review-card">
+
+            <div class="stars">
+
+                ★★★★☆
+
+            </div>
+
+            <p>
+
+                Great quality cleaning products.
+
+            </p>
+
+            <h4>
+
+                - Sameer Patel
+
+            </h4>
+
+        </div>
+
+    </div>
+
+</section>
+
+<!-- ================= FOOTER ================= -->
+
+<footer class="footer" id="footer">
+
+    <div class="footer-container">
+
+        <div class="footer-box">
+
+            <h3>NADAF CLEAN MART</h3>
+
+            <p>
+
+                Wholesale & Retail Cleaning Products
+
+            </p>
+
+            <p>
+
+                Dhanori, Pune - 411015
+
+            </p>
+
+        </div>
+
+        <div class="footer-box">
+
+            <h3>Contact Us</h3>
+
+            <p>
+
+                <i class="fa-solid fa-phone"></i>
+
+                +91 88055 20047
+
+            </p>
+
+            <p>
+
+                <i class="fa-brands fa-whatsapp"></i>
+
+                WhatsApp Orders Available
+
+            </p>
+
+            <p>
+
+                <i class="fa-solid fa-envelope"></i>
+
+                support@nadafcleanmart.in
+
+            </p>
+
+        </div>
+
+        <div class="footer-box">
+
+            <h3>Quick Links</h3>
+
+            <ul>
+
+                <li><a href="index.html">Home</a></li>
+
+                <li><a href="offers.html">Offers</a></li>
+
+                <li><a href="delivery.html">Delivery Areas</a></li>
+
+                <li><a href="profile.html">My Profile</a></li>
+
+                <li><a href="#">Privacy Policy</a></li>
+
+            </ul>
+
+        </div>
+
+    </div>
+
+    <div class="social-icons">
+
+        <a href="#">
+
+            <i class="fa-brands fa-whatsapp"></i>
+
+        </a>
+
+        <a href="#">
+
+            <i class="fa-brands fa-instagram"></i>
+
+        </a>
+
+        <a href="#">
+
+            <i class="fa-brands fa-facebook-f"></i>
+
+        </a>
+
+        <a href="tel:+918805520047">
+
+            <i class="fa-solid fa-phone"></i>
+
+        </a>
+
+    </div>
+
+    <div class="footer-bottom">
+
+        © 2026 NADAF CLEAN MART. All Rights Reserved.
+
+    </div>
+
+</footer>
+
+<!-- ================= FLOATING BUTTONS ================= -->
+
+<a href="https://wa.me/918805520047"
+   target="_blank"
+   class="floating-whatsapp">
+
+    <i class="fa-brands fa-whatsapp"></i>
+
+</a>
+
+<a href="tel:+918805520047"
+   class="floating-call">
+
+    <i class="fa-solid fa-phone"></i>
+
+</a>
+<!-- CART -->
+
+<div id="cartOverlay" class="cart-overlay" style="display:none;">
+
+    <div class="cart-sidebar">
+
+        <div class="cart-header">
+
+            <h2>My Cart</h2>
+
+            <button onclick="closeCart()">✖</button>
+
+        </div>
+
+        <div id="cartItems" class="cart-items">
+
+        </div>
+
+        <div class="cart-footer">
+
+            <h3>Total :
+                <span id="cartTotal">₹0</span>
+            </h3>
+
+            <button class="checkout-btn">
+                Checkout
+            </button>
+
+        </div>
+
+    </div>
+
+</div>
+
+<div id="cartSuccessPopup" class="cart-success-popup">
+
+    <i class="fa-solid fa-circle-check"></i>
+
+    <span>Product Successfully Added to Cart</span>
+
+</div>
+<!-- Repeat Order Success Popup -->
+
+<div id="repeatOrderPopup" class="repeat-popup">
+
+    <div class="repeat-popup-box">
+
+        <i class="fa-solid fa-circle-check"></i>
+
+        <h2>Order Added to Cart</h2>
+
+        <p>
+            Your previous order has been added successfully.
+        </p>
+
+        <p>
+            You can continue shopping or proceed to checkout.
+        </p>
+
+        <div class="repeat-popup-buttons">
+
+            <button onclick="closeRepeatPopup()">
+                Continue Shopping
+            </button>
+
+            <button onclick="goToCheckout()">
+                Proceed to Checkout
+            </button>
+
+        </div>
+
+    </div>
+
+</div>
+
+
+
+<!-- ================= JAVASCRIPT ================= -->
+
+<script src="products.js"></script>
+
+<script src="script.js"></script>
+
+</body>
+
+</html>
+
+

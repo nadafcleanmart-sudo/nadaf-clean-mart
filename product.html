@@ -1,0 +1,377 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Product | NADAF CLEAN MART</title>
+<link rel="icon" type="image/jpeg" href="images/logo.jpeg">
+<link rel="manifest" href="manifest.json">
+<meta id="metaDescription" name="description" content="NADAF CLEAN MART Pune - Wholesale & Retail Cleaning Products.">
+<link id="canonicalUrl" rel="canonical" href="">
+<meta id="ogTitle" property="og:title" content="">
+
+<meta id="ogDescription" property="og:description" content="">
+
+<meta id="ogImage" property="og:image" content="">
+
+<meta property="og:type" content="product">
+
+<meta id="ogUrl" property="og:url" content="">
+<script id="productSchema" type="application/ld+json"></script>
+<link rel="stylesheet" href="style.css">
+
+<script id="productSchema" type="application/ld+json"></script>
+<link rel="stylesheet"
+href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
+</head>
+
+<body>
+
+<header class="header">
+
+<div class="logo">
+<a href="index.html">
+
+<div class="logo-icon">
+<i class="fa-solid fa-store"></i>
+</div>
+
+<div class="logo-text">
+<h2>NADAF CLEAN MART</h2>
+<span>Wholesale & Retail</span>
+</div>
+
+</a>
+</div>
+
+</header>
+<button onclick="history.back()">← Back</button>
+
+<section class="product-page">
+
+<div class="product-left">
+
+<img id="productImage" src="" alt="Product">
+
+</div>
+
+<div class="product-right">
+
+<span id="productCategory" class="product-category"></span>
+
+<h1 id="productName"></h1>
+
+<h2 id="productPrice"></h2>
+
+<p id="productDescription"></p>
+
+<div class="rating">
+
+★★★★★
+
+</div>
+
+<div class="quantity-box">
+
+<button onclick="decreaseQty()">-</button>
+
+<span id="qty">1</span>
+
+<button onclick="increaseQty()">+</button>
+
+</div>
+
+<div class="product-buttons">
+
+<button class="add-cart-btn" onclick="addToCart()">
+
+<i class="fa-solid fa-cart-shopping"></i>
+
+Add To Cart
+
+</button>
+
+<button class="quick-view-btn" onclick="buyNow()">
+
+<i class="fa-brands fa-whatsapp"></i>
+
+Buy On WhatsApp
+
+</button>
+
+</div>
+
+</div>
+
+</section>
+
+<section class="featured-products">
+
+<div class="section-title">
+
+<h2>Related Products</h2>
+
+</div>
+
+<div id="relatedProducts" class="products-grid">
+
+</div>
+
+</section>
+
+<script src="products.js"></script>
+
+<script>
+    function goToCategory(){
+
+    const category =
+    new URLSearchParams(location.search).get("category");
+
+    window.location.href =
+    "category.html?category=" +
+    encodeURIComponent(category);
+
+}
+
+    
+
+const params=new URLSearchParams(location.search);
+
+const id=parseInt(params.get("id"));
+
+const product=products.find(p=>p.id===id);
+console.log("ID:", id);
+console.log("Product:", product);
+let qty=1;
+
+if(product){
+
+document.getElementById("productImage").src=product.image;
+
+document.getElementById("productCategory").innerHTML=product.category;
+
+document.getElementById("productName").innerHTML=product.name;
+
+document.getElementById("productPrice").innerHTML="₹"+product.price;
+
+document.getElementById("productDescription").innerHTML=product.description;
+
+document.title = `${product.name} | NADAF CLEAN MART Pune`;
+
+document.getElementById("metaDescription").setAttribute(
+    "content",
+    `Buy ${product.name} online from NADAF CLEAN MART Pune. ${product.description}`
+);
+document.getElementById("canonicalUrl").setAttribute(
+    "href",
+    window.location.href
+);
+document.getElementById("ogTitle").setAttribute(
+    "content",
+    `${product.name} | NADAF CLEAN MART Pune`
+);
+
+document.getElementById("ogDescription").setAttribute(
+    "content",
+    `Buy ${product.name} online from NADAF CLEAN MART Pune. ${product.description}`
+);
+
+document.getElementById("ogImage").setAttribute(
+    "content",
+    product.image
+);
+
+document.getElementById("ogUrl").setAttribute(
+    "content",
+    window.location.href
+);
+const schema = {
+    "@context": "https://schema.org",
+    "@type": "Product",
+    "name": product.name,
+    "image": window.location.origin + "/" + product.image,
+    "description": product.description,
+    "category": product.category,
+    "brand": {
+        "@type": "Brand",
+        "name": "NADAF CLEAN MART"
+    },
+    "offers": {
+        "@type": "Offer",
+        "priceCurrency": "INR",
+        "price": product.price,
+        "availability": "https://schema.org/InStock",
+        "url": window.location.href
+    }
+};
+
+document.getElementById("productSchema").textContent =
+JSON.stringify(schema);
+
+
+}
+
+function increaseQty(){
+
+qty++;
+
+document.getElementById("qty").innerHTML=qty;
+
+}
+
+function decreaseQty(){
+
+if(qty>1){
+
+qty--;
+
+document.getElementById("qty").innerHTML=qty;
+
+}
+
+}
+
+function addToCart(){
+
+let cart=JSON.parse(localStorage.getItem("cart"))||[];
+
+const existing=cart.find(i=>i.id===product.id);
+
+if(existing){
+
+existing.qty+=qty;
+
+}else{
+
+cart.push({
+
+...product,
+
+qty:qty
+
+});
+
+}
+
+localStorage.setItem("cart",JSON.stringify(cart));
+
+document.getElementById("successPopup").style.display = "flex";
+
+}
+
+function buyNow(){
+
+const total=product.price*qty;
+
+const phone="91XXXXXXXXXX";
+
+let message=`*NADAF CLEAN MART*%0A`;
+
+message+=`Product : ${product.name}%0A`;
+
+message+=`Price : ₹${product.price}%0A`;
+
+message+=`Quantity : ${qty}%0A`;
+
+message+=`Total : ₹${total}`;
+
+window.open(
+
+`https://wa.me/${phone}?text=${message}`,
+
+"_blank"
+
+);
+
+}
+
+const related=products.filter(p=>
+
+p.category===product.category &&
+
+p.id!==product.id
+
+);
+
+const container=document.getElementById("relatedProducts");
+
+related.forEach(item=>{
+
+container.innerHTML+=`
+
+<div class="product-card">
+
+<div class="product-image">
+
+<img src="${item.image}">
+
+</div>
+
+<div class="product-content">
+
+<span class="product-category">
+
+${item.category}
+
+</span>
+
+<h3 class="product-name">
+
+${item.name}
+
+</h3>
+
+<div class="product-price">
+
+₹${item.price}
+
+</div>
+
+<div class="product-buttons">
+
+<button
+
+class="quick-view-btn"
+
+onclick="location.href='product.html?id=${item.id}'">
+
+View Product
+
+</button>
+
+</div>
+
+</div>
+
+</div>
+
+`;
+
+});
+
+
+</script>
+<div id="successPopup" class="success-popup">
+
+    <div class="success-box">
+
+        <h2>✅ Product Added To Cart</h2>
+
+        <button onclick="goToCategory()">
+            OK
+        </button>
+
+    </div>
+
+</div>
+
+
+</body>
+
+</html>
+

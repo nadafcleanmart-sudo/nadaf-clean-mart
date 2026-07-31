@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>My Profile | NADAF CLEAN MART</title>
+<link rel="icon" type="image/jpeg" href="images/logo.jpeg">
+<link rel="manifest" href="manifest.json">
+
+<link rel="stylesheet" href="style.css">
+
+<link rel="stylesheet"
+href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
+</head>
+
+<body>
+
+<header class="header">
+
+<div class="logo">
+
+<a href="index.html">
+
+<div class="logo-icon">
+<i class="fa-solid fa-store"></i>
+</div>
+
+<div class="logo-text">
+<h2>NADAF CLEAN MART</h2>
+<span>Wholesale & Retail</span>
+</div>
+
+</a>
+
+</div>
+<div class="header-icons">
+
+    <button id="cartBtn" onclick="openCart()">
+        <i class="fa-solid fa-cart-shopping"></i>
+        <span id="cartCount">0</span>
+    </button>
+
+</div>
+
+</header>
+
+<section class="profile-page">
+
+<div class="section-title">
+
+<h2>My Profile</h2>
+
+<p>Your Saved Information</p>
+
+</div>
+
+<div class="profile-box">
+<button class="edit-profile-btn" onclick="editProfile()">
+    <i class="fa-solid fa-pen"></i>
+    Edit Profile
+</button>
+<div class="profile-row">
+
+<label>Name</label>
+
+<span id="profileName">-</span>
+
+</div>
+
+<div class="profile-row">
+
+<label>Mobile</label>
+
+<span id="profileMobile">-</span>
+
+</div>
+
+<div class="profile-row">
+
+<label>Address</label>
+
+<span id="profileAddress">-</span>
+
+</div>
+
+</div>
+
+</section>
+
+<section class="featured-products">
+
+<div class="section-title">
+
+<h2>Order History</h2>
+
+</div>
+
+<div id="orderHistory">
+
+</div>
+
+
+</section>
+
+<script>
+
+const customer=JSON.parse(localStorage.getItem("customer"));
+
+if(!customer){
+
+    localStorage.setItem("customer", JSON.stringify({
+        name:"",
+        mobile:"",
+        address:""
+    }));
+
+}
+
+if(customer){
+
+document.getElementById("profileName").textContent=customer.name;
+
+document.getElementById("profileMobile").textContent=customer.mobile;
+
+document.getElementById("profileAddress").textContent=customer.address;
+
+}
+
+const orders=JSON.parse(localStorage.getItem("orders")) || [];
+
+const history=document.getElementById("orderHistory");
+
+if(orders.length===0){
+
+history.innerHTML=`
+<div class="empty-box">
+<i class="fa-solid fa-box-open"></i>
+<h3>No Orders Yet</h3>
+</div>
+`;
+
+}else{
+
+orders.reverse().forEach(order=>{
+
+let productsHTML = "";
+
+order.items.forEach(item=>{
+
+productsHTML += `
+
+<div class="order-product">
+
+    <img src="${item.image}" alt="${item.name}">
+
+    <div class="order-product-info">
+
+        <h4>${item.name}</h4>
+
+        <p>Qty : ${item.qty} × ₹${item.price}</p>
+
+    </div>
+
+    <strong>₹${item.qty * item.price}</strong>
+
+</div>
+
+`;
+
+});
+
+history.innerHTML += `
+
+<div class="product-card">
+
+<div class="product-content">
+
+<h3>Order #${order.orderId}</h3>
+
+<p>📅 ${order.date}</p>
+
+<hr>
+
+${productsHTML}
+
+<div class="order-footer">
+
+    <div class="order-total">
+
+        <span>Total Amount</span>
+
+        <strong>₹${order.total}</strong>
+
+    </div>
+
+    <button class="repeat-order-btn"
+    onclick="repeatOrder('${order.orderId}')">
+
+        <i class="fa-solid fa-rotate-right"></i>
+        Repeat Order
+
+    </button>
+
+</div>
+</div>
+
+</div>
+
+`;
+
+});
+
+}
+function editProfile(){
+
+    let customer = JSON.parse(localStorage.getItem("customer")) || {};
+
+    const name = prompt("Enter Your Name", customer.name || "");
+    if(name === null) return;
+
+    const mobile = prompt("Enter Mobile Number", customer.mobile || "");
+    if(mobile === null) return;
+
+    const address = prompt("Enter Address", customer.address || "");
+    if(address === null) return;
+
+    customer = {
+        name,
+        mobile,
+        address
+    };
+
+    localStorage.setItem("customer", JSON.stringify(customer));
+
+    document.getElementById("profileName").textContent = name;
+    document.getElementById("profileMobile").textContent = mobile;
+    document.getElementById("profileAddress").textContent = address;
+
+    alert("✅ Profile Updated Successfully");
+
+}
+function repeatOrder(orderId){
+
+    const orders = JSON.parse(localStorage.getItem("orders")) || [];
+
+    const order = orders.find(o => o.orderId === orderId);
+
+    if(!order){
+        alert("Order not found.");
+        return;
+    }
+
+    let cart = JSON.parse(localStorage.getItem("cart")) || [];
+
+    order.items.forEach(item => {
+
+        const existing = cart.find(p => p.id === item.id);
+
+        if(existing){
+
+            existing.qty += item.qty;
+
+        }else{
+
+            cart.push({...item});
+
+        }
+
+    });
+
+    localStorage.setItem("cart", JSON.stringify(cart));
+
+// Next page par cart automatically open karne ke liye
+localStorage.setItem("openCartAfterRedirect", "true");
+
+// Home page par bhejo
+window.location.href = "index.html";
+
+}
+
+
+</script>
+
+<script src="script.js"></script>
+
+</body>
+
+</html>
